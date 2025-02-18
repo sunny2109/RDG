@@ -30,7 +30,7 @@ and then incorporate **auxiliary G-buffer information** to guide the decoder to 
 <div align="center">
     <img src='./assets/Blender.png'/>
 </div>
-We use the Cycles engine to render the scene model and generate the dataset. the above Figure illustrates the detailed rendering settings, 
+We use the Cycles engine to render the scene model and generate the dataset. The figure above illustrates the detailed rendering settings, 
 where we set the maximum number of light samples to 1000, the maximum number of light reflections to 12, 
 HR videos have a spatial resolution of 1920×1080 and 480×270 for their LR counterparts, and the frame rate of the camera is set to 24 FPS. 
 The collected dataset covers different scenarios such as complex textures and geometries, glossy reflections, and fast-moving objects.
