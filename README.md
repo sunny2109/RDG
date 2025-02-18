@@ -9,8 +9,7 @@
 > [Mingjun Zheng*](https://github.com/Zheng-MJ), 
 [Long Sun*](https://github.com/sunny2109), 
 [Jiangxin Dong](https://scholar.google.com/citations?user=ruebFVEAAAAJ&hl=zh-CN&oi=ao), 
-and [Jinshan Pan<sup>†</sup>](https://jspan.github.io/) 
-<br>
+and [Jinshan Pan<sup>†</sup>](https://jspan.github.io/) <br>
 > [IMAG Lab](https://imag-njust.net/), Nanjing University of Science and Technology
 
 
