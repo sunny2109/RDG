@@ -9,8 +9,7 @@
 > [Mingjun Zheng*](https://github.com/Zheng-MJ), 
 [Long Sun*](https://github.com/sunny2109), 
 [Jiangxin Dong](https://scholar.google.com/citations?user=ruebFVEAAAAJ&hl=zh-CN&oi=ao), 
-and [Jinshan Pan<sup>†</sup>](https://jspan.github.io/) 
-<br>
+and [Jinshan Pan<sup>†</sup>](https://jspan.github.io/) <br>
 > [IMAG Lab](https://imag-njust.net/), Nanjing University of Science and Technology
 
 
@@ -31,7 +30,7 @@ and then incorporate **auxiliary G-buffer information** to guide the decoder to 
 <div align="center">
     <img src='./assets/Blender.png'/>
 </div>
-We use the Cycles engine to render the scene model and generate the dataset. the above Figure illustrates the detailed rendering settings, 
+We use the Cycles engine to render the scene model and generate the dataset. The figure above illustrates the detailed rendering settings, 
 where we set the maximum number of light samples to 1000, the maximum number of light reflections to 12, 
 HR videos have a spatial resolution of 1920×1080 and 480×270 for their LR counterparts, and the frame rate of the camera is set to 24 FPS. 
 The collected dataset covers different scenarios such as complex textures and geometries, glossy reflections, and fast-moving objects.
@@ -69,7 +68,7 @@ Please download the collected dataset from [Huggingface](https://huggingface.co/
 python basicsr/train.py -opt options/train/RDG/train_RDG_x4.yml
 ```
 
-### 4. Quick Inference
+### 4. Quick inference
 - Download the pretrained models.
 Please download our checkpoints from [Huggingface](https://huggingface.co/Meloo/RDG) and put it in `./checkpoints/`.
 - Download the testing dataset.
