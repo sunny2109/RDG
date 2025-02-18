@@ -1,4 +1,4 @@
-### 📖 Efficient Video Super-Resolution for Real-time Rendering with Decoupled G-buffer Guidance
+## 📖 Efficient Video Super-Resolution for Real-time Rendering with Decoupled G-buffer Guidance
 > [![Hugging Face Demo](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Demos-blue)](https://huggingface.co/spaces/Meloo/SAFMN)
 [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/Meloo/SAFMN/tree/main)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=sunny2109/RDG)
