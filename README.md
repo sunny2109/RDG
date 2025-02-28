@@ -14,6 +14,7 @@ and [Jinshan Pan<sup>†</sup>](https://jspan.github.io/) <br>
 
 
 ## 📜 News
+ - **[2025/2/28]** RDG is accepted to CVPR 2025!
  - **[2025/2/18]** The project page is released!
 
 ## 🚀 Method Overview
@@ -86,13 +87,16 @@ python basicsr/test.py -opt options/test/RDG/test_benchmark_x4.yml
 </div>
 
 
+## 📧 Contact
+If you have any questions, please feel free to reach us out at cs.longsun@gmail.com or mingjunzheng@njust.edu.cn
+
 ## 📎 Citation 
 
 If you find our work helpful for your research, please consider giving a star ⭐ and citation 📝 
 ```bibtex
 @article{RDG,
   title={Efficient Video Super-Resolution for Real-time Rendering with Decoupled G-buffer Guidance},
-  author={Zheng, Mingjun and Sun, Long and Dong, Jiangxin and Pan, Jinshan}
-  journal={arXiv preprint arXiv:},
+  author={Zheng, Mingjun and Sun, Long and Dong, Jiangxin and Pan, Jinshan},
+  booktitle={CVPR},
   year={2025}
 }
