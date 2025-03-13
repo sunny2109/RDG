@@ -14,6 +14,7 @@ and [Jinshan Pan<sup>†</sup>](https://jspan.github.io/) <br>
 
 
 ## 📜 News
+- **[2025/03/13]** The collected dataset is available at [Baidu Cloud](https://pan.baidu.com/s/1v7-0KaXdTPDMaO_wfBQkhg?pwd=RRDG).
  - **[2025/2/28]** RDG is accepted to CVPR 2025!
  - **[2025/2/18]** The project page is released!
 
@@ -61,7 +62,8 @@ python setup.py develop
 ```
 
 ### 2. Download datasets
-Please download the collected dataset from [Huggingface](https://huggingface.co/Meloo/RDG) and put it in `./datasets/`.
+Please download the collected dataset from [Baidu Cloud](https://pan.baidu.com/s/1v7-0KaXdTPDMaO_wfBQkhg?pwd=RRDG) and put it in `./datasets/`.
+
 
 ### 3. Run the training code
 ```
@@ -73,7 +75,7 @@ python basicsr/train.py -opt options/train/RDG/train_RDG_x4.yml
 - Download the pretrained models.
 Please download our checkpoints from [Huggingface](https://huggingface.co/Meloo/RDG) and put it in `./checkpoints/`.
 - Download the testing dataset.
-Please download the collected dataset from [Huggingface](https://huggingface.co/Meloo/RDG) and put it in `./datasets/`.
+Please download the test dataset from [Baidu Cloud](https://pan.baidu.com/s/1v7-0KaXdTPDMaO_wfBQkhg?pwd=RRDG) and put it in `./datasets/`.
 - Run the following commands:
 ```
 python basicsr/test.py -opt options/test/RDG/test_benchmark_x4.yml 
