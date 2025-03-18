@@ -1,0 +1,8 @@
+Bar 200 000
+Bistro 200 000
+Forest 200 000
+NYC 200 000
+Square 200 000
+SquareNight 200 000
+Tenshukaku 200 000
+ZeroDay 200 000

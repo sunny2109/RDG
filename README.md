@@ -6,9 +6,9 @@
 > [[Paper]()] &emsp;
 [[Supp]()]  <br>
 
-> [Mingjun Zheng*](https://github.com/Zheng-MJ), 
-[Long Sun*](https://github.com/sunny2109), 
-[Jiangxin Dong](https://scholar.google.com/citations?user=ruebFVEAAAAJ&hl=zh-CN&oi=ao), 
+> [Mingjun Zheng*](https://github.com/Zheng-MJ),
+[Long Sun*](https://github.com/sunny2109),
+[Jiangxin Dong](https://scholar.google.com/citations?user=ruebFVEAAAAJ&hl=zh-CN&oi=ao),
 and [Jinshan Pan<sup>†</sup>](https://jspan.github.io/) <br>
 > [IMAG Lab](https://imag-njust.net/), Nanjing University of Science and Technology
 
@@ -24,7 +24,7 @@ and [Jinshan Pan<sup>†</sup>](https://jspan.github.io/) <br>
 </div>
 
 RDG is an efficient asymmetric UNet-based super-resolution network for solving the real-time rendering problem.
-We first propose a **dynamic feature modulator** for capturing a precise structura information, 
+We first propose a **dynamic feature modulator** for capturing a precise structura information,
 and then incorporate **auxiliary G-buffer information** to guide the decoder to generate detail-rich, temporally stable results.
 
 
@@ -32,9 +32,9 @@ and then incorporate **auxiliary G-buffer information** to guide the decoder to 
 <div align="center">
     <img src='./assets/Blender.png'/>
 </div>
-We use the Cycles engine to render the scene model and generate the dataset. The figure above illustrates the detailed rendering settings, 
-where we set the maximum number of light samples to 1000, the maximum number of light reflections to 12, 
-HR videos have a spatial resolution of 1920×1080 and 480×270 for their LR counterparts, and the frame rate of the camera is set to 24 FPS. 
+We use the Cycles engine to render the scene model and generate the dataset. The figure above illustrates the detailed rendering settings,
+where we set the maximum number of light samples to 1000, the maximum number of light reflections to 12,
+HR videos have a spatial resolution of 1920×1080 and 480×270 for their LR counterparts, and the frame rate of the camera is set to 24 FPS.
 The collected dataset covers different scenarios such as complex textures and geometries, glossy reflections, and fast-moving objects.
 
 
@@ -68,7 +68,7 @@ Please download the collected dataset from [Baidu Cloud](https://pan.baidu.com/s
 ### 3. Run the training code
 ```
 # train RDG for x4 effieicnt SR
-python basicsr/train.py -opt options/train/RDG/train_RDG_x4.yml
+python basicsr/train.py -opt options/train/train_RDG_x4.yml
 ```
 
 ### 4. Quick inference
@@ -78,7 +78,7 @@ Please download our checkpoints from [Huggingface](https://huggingface.co/Meloo/
 Please download the test dataset from [Baidu Cloud](https://pan.baidu.com/s/1v7-0KaXdTPDMaO_wfBQkhg?pwd=RRDG) and put it in `./datasets/`.
 - Run the following commands:
 ```
-python basicsr/test.py -opt options/test/RDG/test_benchmark_x4.yml 
+python basicsr/test.py -opt options/test/test_RDG_x4.yml
 ```
 - The test results will be in './results'.
 
@@ -92,9 +92,9 @@ python basicsr/test.py -opt options/test/RDG/test_benchmark_x4.yml
 ## 📧 Contact
 If you have any questions, please feel free to reach us out at cs.longsun@gmail.com or mingjunzheng@njust.edu.cn
 
-## 📎 Citation 
+## 📎 Citation
 
-If you find our work helpful for your research, please consider giving a star ⭐ and citation 📝 
+If you find our work helpful for your research, please consider giving a star ⭐ and citation 📝
 ```bibtex
 @article{RDG,
   title={Efficient Video Super-Resolution for Real-time Rendering with Decoupled G-buffer Guidance},

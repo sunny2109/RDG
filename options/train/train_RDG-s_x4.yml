@@ -1,5 +1,5 @@
 # general settings
-name: train_RDG_s_X4
+name: train_RDG_s_x4
 model_type: VideoRenderModel
 scale: 4
 num_gpu: auto  # official: 8 GPUs
@@ -10,9 +10,9 @@ datasets:
   train:
     name: Render
     type: RenderRecurrentDataset
-    dataroot_gt: /data0/zhengmingjun/Dataset/TrainData_sub/GT
-    dataroot_lq: /data0/zhengmingjun/Dataset/TrainData_sub/X4LR
-    meta_info_file: /data0/zhengmingjun/Dataset/TrainData_sub/TrainData_meta_info.txt
+    dataroot_gt: datasets/TrainData_sub/GT
+    dataroot_lq: datasets/TrainData_sub/X4LR
+    meta_info_file: basicsr/data/meta_info/TrainData_meta_info.txt
     io_backend:
       type: disk
 
@@ -32,10 +32,10 @@ datasets:
   val:
     name: Render
     type: RenderRecurrentTestDataset
-    dataroot_gt: /data0/zhengmingjun/RDG/datasets/Testdata/GT
-    dataroot_lq: /data0/zhengmingjun/RDG/datasets/Testdata/X4LR
-    meta_info_file: /data0/zhengmingjun/RDG/datasets/Testdata/TestData_meta_info.txt
-    # cache_data: true
+    dataroot_gt: datasets/Testdata/GT
+    dataroot_lq: datasets/Testdata/X4LR
+    meta_info_file: basicsr/data/meta_info/ValData_meta_info.txt
+    cache_data: true
     use_lq_normal: true
     use_lq_brdf: true
     use_lq_motion: true
@@ -43,7 +43,7 @@ datasets:
 
 # network structures
 network_g:
-  type: CVPR_GIF_Base
+  type: RDG
   in_channle: 3
   num_feat: 16
   scale:  4

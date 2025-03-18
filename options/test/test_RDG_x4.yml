@@ -1,4 +1,4 @@
-name: RDG-s
+name: test_RDG_x4
 model_type: VideoRenderModel
 scale: 4
 num_gpu: 1  # set num_gpu: 0 for cpu mode
@@ -8,9 +8,9 @@ datasets:
   test_1:  # the 1st test dataset
     name: Render
     type: RenderRecurrentTestDataset
-    dataroot_gt: /data0/zhengmingjun/Dataset/TestData/GT
-    dataroot_lq: /data0/zhengmingjun/Dataset/TestData/X4LR
-    meta_info_file: /data0/zhengmingjun/Dataset/TestData/TestData_meta_info.txt
+    dataroot_gt: datasets/Testdata/GT
+    dataroot_lq: datasets/Testdata/X4LR
+    meta_info_file: basicsr/data/meta_info/TestData_meta_info.txt
 
     use_lq_normal: true
     use_lq_brdf: true
@@ -21,13 +21,13 @@ datasets:
 network_g:
   type: RDG
   in_channle: 3
-  num_feat: 16
+  num_feat: 36
   scale:  4
 
 
 # path
 path:
-  pretrain_network_g: /data0/zhengmingjun/RDG/pretrained_models/RDG_Small.pth
+  pretrain_network_g: checkpoints/RDG_Base.pth
   strict_load_g: true
 
 # validation settings
@@ -41,10 +41,7 @@ val:
       type: calculate_psnr
       crop_border: 0
       test_y_channel: false
-    # ssim:
-    #   type: calculate_ssim
-    #   crop_border: 0
-    #   test_y_channel: false
-    # lpips:
-    #   type: calculate_lpips
-    #   crop_border: 0
+    ssim:
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false
