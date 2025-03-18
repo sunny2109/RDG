@@ -14,7 +14,8 @@ and [Jinshan Pan<sup>†</sup>](https://jspan.github.io/) <br>
 
 
 ## 📜 News
-- **[2025/03/13]** The collected dataset is available at [Baidu Cloud](https://pan.baidu.com/s/1v7-0KaXdTPDMaO_wfBQkhg?pwd=RRDG).
+ - **[2025/03/18]** Code is available now!
+ - **[2025/03/13]** The collected dataset is available at [Baidu Cloud](https://pan.baidu.com/s/1v7-0KaXdTPDMaO_wfBQkhg?pwd=RRDG).
  - **[2025/02/28]** RDG is accepted to CVPR 2025!
  - **[2025/02/18]** The project page is released!
 
