@@ -1,0 +1,251 @@
+2025-03-18 16:32:08,953 INFO: 
+                ____                _       _____  ____
+               / __ ) ____ _ _____ (_)_____/ ___/ / __ \
+              / __  |/ __ `// ___// // ___/\__ \ / /_/ /
+             / /_/ // /_/ /(__  )/ // /__ ___/ // _, _/
+            /_____/ \__,_//____//_/ \___//____//_/ |_|
+     ______                   __   __                 __      __
+    / ____/____   ____   ____/ /  / /   __  __ _____ / /__   / /
+   / / __ / __ \ / __ \ / __  /  / /   / / / // ___// //_/  / /
+  / /_/ // /_/ // /_/ // /_/ /  / /___/ /_/ // /__ / /<    /_/
+  \____/ \____/ \____/ \____/  /_____/\____/ \___//_/|_|  (_)
+    
+Version Information: 
+	BasicSR: 1.4.2
+	PyTorch: 2.0.1+cu117
+	TorchVision: 0.15.2+cu117
+2025-03-18 16:32:08,953 INFO: 
+  name: RDG
+  model_type: VideoRenderModel
+  scale: 4
+  num_gpu: 1
+  manual_seed: 0
+  datasets:[
+    test_1:[
+      name: Render
+      type: RenderRecurrentTestDataset
+      dataroot_gt: /data0/zhengmingjun/Dataset/TestData/GT
+      dataroot_lq: /data0/zhengmingjun/Dataset/TestData/X4LR
+      meta_info_file: /data0/zhengmingjun/Dataset/TestData/TestData_meta_info.txt
+      use_lq_normal: True
+      use_lq_brdf: True
+      use_lq_motion: True
+      use_lq_depth: True
+      phase: test
+      scale: 4
+    ]
+  ]
+  network_g:[
+    type: RDG
+    in_channle: 3
+    num_feat: 36
+    scale: 4
+  ]
+  path:[
+    pretrain_network_g: /data0/zhengmingjun/RDG/pretrained_models/RDG_Base.pth
+    strict_load_g: True
+    results_root: /data0/zhengmingjun/RDG/results/RDG
+    log: /data0/zhengmingjun/RDG/results/RDG
+    visualization: /data0/zhengmingjun/RDG/results/RDG/visualization
+  ]
+  val:[
+    save_img: False
+    segment_frame: 100
+    suffix: None
+    metrics:[
+      psnr:[
+        type: calculate_psnr
+        crop_border: 0
+        test_y_channel: False
+      ]
+    ]
+  ]
+  dist: False
+  rank: 0
+  world_size: 1
+  auto_resume: False
+  is_train: False
+
+2025-03-18 16:32:08,953 INFO: Generate data info for VideoTestDataset - Render
+2025-03-18 16:32:09,002 INFO: Dataset [RenderRecurrentTestDataset] - Render is built.
+2025-03-18 16:32:09,002 INFO: Number of test images in Render: 13
+2025-03-18 16:32:09,059 INFO: Network [RDG] is created.
+2025-03-18 16:32:10,458 INFO: Network: RDG, with parameters: 1,473,600
+2025-03-18 16:32:10,458 INFO: RDG(
+  (first_conv): Conv2d(3, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (encoders): ModuleList(
+    (0): Sequential(
+      (0): EncodeLayer(
+        (dfm): DFM(
+          (proj_in): Sequential(
+            (0): Conv2d(36, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=36)
+            (1): Conv2d(72, 72, kernel_size=(1, 1), stride=(1, 1))
+          )
+          (mlp_h): CycleFC(CycleFC(36, 36, kernel_size=(1, 7), stride=(1, 1)))
+          (mlp_w): CycleFC(CycleFC(36, 36, kernel_size=(7, 1), stride=(1, 1)))
+          (merge): Conv2d(72, 36, kernel_size=(1, 1), stride=(1, 1))
+          (proj_out): Conv2d(36, 36, kernel_size=(1, 1), stride=(1, 1))
+          (act): GELU(approximate='none')
+        )
+        (ffn): CCM(
+          (fn): Sequential(
+            (0): Conv2d(36, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): GELU(approximate='none')
+            (2): Conv2d(72, 36, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+      )
+    )
+    (1): Sequential(
+      (0): EncodeLayer(
+        (dfm): DFM(
+          (proj_in): Sequential(
+            (0): Conv2d(72, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=72)
+            (1): Conv2d(144, 144, kernel_size=(1, 1), stride=(1, 1))
+          )
+          (mlp_h): CycleFC(CycleFC(72, 72, kernel_size=(1, 7), stride=(1, 1)))
+          (mlp_w): CycleFC(CycleFC(72, 72, kernel_size=(7, 1), stride=(1, 1)))
+          (merge): Conv2d(144, 72, kernel_size=(1, 1), stride=(1, 1))
+          (proj_out): Conv2d(72, 72, kernel_size=(1, 1), stride=(1, 1))
+          (act): GELU(approximate='none')
+        )
+        (ffn): CCM(
+          (fn): Sequential(
+            (0): Conv2d(72, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): GELU(approximate='none')
+            (2): Conv2d(144, 72, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+      )
+    )
+  )
+  (decoders): ModuleList(
+    (0): DecodeLayer(
+      (hfb): HFB(
+        (conv_g): Conv2d(6, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv_x): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (gelu): GELU(approximate='none')
+        (proj_out): Conv2d(144, 72, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (ctr): CTR(
+        (to_q): Sequential(
+          (0): Conv2d(72, 144, kernel_size=(1, 1), stride=(1, 1))
+          (1): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=144)
+        )
+        (to_kv): Sequential(
+          (0): Conv2d(72, 288, kernel_size=(1, 1), stride=(1, 1))
+          (1): Conv2d(288, 288, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=288)
+        )
+        (proj_out): Conv2d(145, 72, kernel_size=(1, 1), stride=(1, 1))
+        (sigm): Sigmoid()
+      )
+      (ffn): CCM(
+        (fn): Sequential(
+          (0): Conv2d(72, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): GELU(approximate='none')
+          (2): Conv2d(144, 72, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+    )
+    (1): DecodeLayer(
+      (hfb): HFB(
+        (conv_g): Conv2d(6, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv_x): Conv2d(36, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (gelu): GELU(approximate='none')
+        (proj_out): Conv2d(72, 36, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (ctr): CTR(
+        (to_q): Sequential(
+          (0): Conv2d(36, 72, kernel_size=(1, 1), stride=(1, 1))
+          (1): Conv2d(72, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=72)
+        )
+        (to_kv): Sequential(
+          (0): Conv2d(36, 144, kernel_size=(1, 1), stride=(1, 1))
+          (1): Conv2d(144, 144, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=144)
+        )
+        (proj_out): Conv2d(73, 36, kernel_size=(1, 1), stride=(1, 1))
+        (sigm): Sigmoid()
+      )
+      (ffn): CCM(
+        (fn): Sequential(
+          (0): Conv2d(36, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): GELU(approximate='none')
+          (2): Conv2d(72, 36, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+    )
+  )
+  (middle_encoders): Sequential(
+    (0): EncodeLayer(
+      (dfm): DFM(
+        (proj_in): Sequential(
+          (0): Conv2d(108, 216, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=108)
+          (1): Conv2d(216, 216, kernel_size=(1, 1), stride=(1, 1))
+        )
+        (mlp_h): CycleFC(CycleFC(108, 108, kernel_size=(1, 7), stride=(1, 1)))
+        (mlp_w): CycleFC(CycleFC(108, 108, kernel_size=(7, 1), stride=(1, 1)))
+        (merge): Conv2d(216, 108, kernel_size=(1, 1), stride=(1, 1))
+        (proj_out): Conv2d(108, 108, kernel_size=(1, 1), stride=(1, 1))
+        (act): GELU(approximate='none')
+      )
+      (ffn): CCM(
+        (fn): Sequential(
+          (0): Conv2d(108, 216, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): GELU(approximate='none')
+          (2): Conv2d(216, 108, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+    )
+  )
+  (middle_decoders): DecodeLayer(
+    (hfb): HFB(
+      (conv_g): Conv2d(6, 108, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (conv_x): Conv2d(108, 108, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (gelu): GELU(approximate='none')
+      (proj_out): Conv2d(216, 108, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (ctr): CTR(
+      (to_q): Sequential(
+        (0): Conv2d(108, 216, kernel_size=(1, 1), stride=(1, 1))
+        (1): Conv2d(216, 216, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=216)
+      )
+      (to_kv): Sequential(
+        (0): Conv2d(108, 432, kernel_size=(1, 1), stride=(1, 1))
+        (1): Conv2d(432, 432, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=432)
+      )
+      (proj_out): Conv2d(217, 108, kernel_size=(1, 1), stride=(1, 1))
+      (sigm): Sigmoid()
+    )
+    (ffn): CCM(
+      (fn): Sequential(
+        (0): Conv2d(108, 216, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): GELU(approximate='none')
+        (2): Conv2d(216, 108, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+  )
+  (ups): ModuleList(
+    (0): Upsampling(
+      (conv): Conv2d(108, 72, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (1): Upsampling(
+      (conv): Conv2d(72, 36, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+  )
+  (downs): ModuleList(
+    (0): Conv2d(36, 72, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+    (1): Conv2d(72, 108, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+  )
+  (skip_alphas): ParameterList(
+      (0): Parameter containing: [torch.float32 of size 1x36x1x1 (GPU 0)]
+      (1): Parameter containing: [torch.float32 of size 1x72x1x1 (GPU 0)]
+  )
+  (UpSample): Sequential(
+    (0): Conv2d(36, 48, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): PixelShuffle(upscale_factor=4)
+  )
+)
+2025-03-18 16:32:10,476 INFO: Loading RDG model from /data0/zhengmingjun/RDG/pretrained_models/RDG_Base.pth, with param key: [params].
+2025-03-18 16:32:10,732 INFO: Model [VideoRenderModel] is created.
+2025-03-18 16:32:10,732 INFO: Testing Render...
+2025-03-18 16:32:10,732 WARNING: nondist_validation is not implemented. Run dist_validation.

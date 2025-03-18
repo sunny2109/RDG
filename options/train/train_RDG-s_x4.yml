@@ -1,0 +1,121 @@
+# general settings
+name: train_RDG_s_X4
+model_type: VideoRenderModel
+scale: 4
+num_gpu: auto  # official: 8 GPUs
+manual_seed: 0
+
+# dataset and data loader settings
+datasets:
+  train:
+    name: Render
+    type: RenderRecurrentDataset
+    dataroot_gt: /data0/zhengmingjun/Dataset/TrainData_sub/GT
+    dataroot_lq: /data0/zhengmingjun/Dataset/TrainData_sub/X4LR
+    meta_info_file: /data0/zhengmingjun/Dataset/TrainData_sub/TrainData_meta_info.txt
+    io_backend:
+      type: disk
+
+    num_frame: 15
+    gt_size: 384
+    use_lq_normal: true
+    use_lq_brdf: true
+    use_lq_motion: true
+    use_lq_depth: true
+
+    # data loader
+    num_worker_per_gpu: 8
+    batch_size_per_gpu: 16
+    dataset_enlarge_ratio: 100
+    prefetch_mode: ~
+
+  val:
+    name: Render
+    type: RenderRecurrentTestDataset
+    dataroot_gt: /data0/zhengmingjun/RDG/datasets/Testdata/GT
+    dataroot_lq: /data0/zhengmingjun/RDG/datasets/Testdata/X4LR
+    meta_info_file: /data0/zhengmingjun/RDG/datasets/Testdata/TestData_meta_info.txt
+    # cache_data: true
+    use_lq_normal: true
+    use_lq_brdf: true
+    use_lq_motion: true
+    use_lq_depth: true
+
+# network structures
+network_g:
+  type: CVPR_GIF_Base
+  in_channle: 3
+  num_feat: 16
+  scale:  4
+
+# path
+path:
+  pretrain_network_g: ~
+  strict_load_g: true
+  resume_state: ~
+
+# training settings
+train:
+  ema_decay: 0.999
+  optim_g:
+    type: Adam
+    lr: !!float 1e-3
+    weight_decay: 0
+    betas: [0.9, 0.99]
+
+  scheduler:
+    type: CosineAnnealingRestartLR
+    periods: [300000]
+    restart_weights: [1]
+    eta_min: !!float 1e-7
+
+  total_iter: 300000
+
+  # losses
+  pixel_opt:
+    type: CharbonnierLoss
+    loss_weight: 1.0
+    reduction: mean
+
+  consisten_opt:
+    type: ConsistencyLoss
+    loss_weight: 1.0
+    reduction: mean
+
+  fft_opt:
+    type: FFTLoss
+    loss_weight: 0.05
+    reduction: mean
+
+
+# validation settings
+val:
+  val_freq: !!float 5e3
+  save_img: false
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 4
+      test_y_channel: false
+    # ssim:
+    #   type: calculate_ssim
+    #   crop_border: 4
+    #   test_y_channel: False
+    #   better: higher  # the higher, the better. Default: higher
+
+# logging settings
+logger:
+  print_freq: 100
+  save_checkpoint_freq: !!float 5e3
+  use_tb_logger: true
+  wandb:
+    project: ~
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
+
+find_unused_parameters: false
