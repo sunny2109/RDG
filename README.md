@@ -74,7 +74,7 @@ python basicsr/train.py -opt options/train/train_RDG_x4.yml
 
 ### 4. Quick inference
 - Download the pretrained models.
-Please download our checkpoints from [Huggingface](https://huggingface.co/Meloo/RDG) and put it in `./checkpoints/`.
+Please download the pretrained [checkpoints](https://github.com/sunny2109/RDG/tree/main/checkpoints)and put it in `./checkpoints/`.
 - Download the testing dataset.
 Please download the test dataset from [Baidu Cloud](https://pan.baidu.com/s/1v7-0KaXdTPDMaO_wfBQkhg?pwd=RRDG) and put it in `./datasets/`.
 - Run the following commands:
