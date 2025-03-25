@@ -1,6 +1,5 @@
 ## 📖 Efficient Video Super-Resolution for Real-time Rendering with Decoupled G-buffer Guidance
-> [![Hugging Face Demo](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Demos-blue)](https://huggingface.co/spaces/Meloo/SAFMN)
-[![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/Meloo/SAFMN/tree/main)
+> [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/Meloo/SAFMN/tree/main)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=sunny2109/RDG)
 [![GitHub Stars](https://img.shields.io/github/stars/sunny2109/RDG?style=social)](https://github.com/sunny2109/RDG) <br>
 > [[Paper](assets/Paper_CVPR_2025.pdf)] &emsp;
@@ -14,7 +13,8 @@ and [Jinshan Pan<sup>†</sup>](https://jspan.github.io/) <br>
 
 
 ## 📜 News
-- **[2025/03/13]** The collected dataset is available at [Baidu Cloud](https://pan.baidu.com/s/1v7-0KaXdTPDMaO_wfBQkhg?pwd=RRDG).
+ - **[2025/03/18]** Code is available now!
+ - **[2025/03/13]** The collected dataset is available at [Baidu Cloud](https://pan.baidu.com/s/1v7-0KaXdTPDMaO_wfBQkhg?pwd=RRDG).
  - **[2025/02/28]** RDG is accepted to CVPR 2025!
  - **[2025/02/18]** The project page is released!
 
@@ -73,8 +73,10 @@ python basicsr/train.py -opt options/train/train_RDG_x4.yml
 
 ### 4. Quick inference
 - Download the pretrained models.
-Please download our checkpoints from [Huggingface](https://huggingface.co/Meloo/RDG) and put it in `./checkpoints/`.
+
+Please download the pretrained [model weights](https://github.com/sunny2109/RDG/tree/main/checkpoints) and put it in `./checkpoints/`.
 - Download the testing dataset.
+
 Please download the test dataset from [Baidu Cloud](https://pan.baidu.com/s/1v7-0KaXdTPDMaO_wfBQkhg?pwd=RRDG) and put it in `./datasets/`.
 - Run the following commands:
 ```
