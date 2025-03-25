@@ -3,8 +3,8 @@
 [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/Meloo/SAFMN/tree/main)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=sunny2109/RDG)
 [![GitHub Stars](https://img.shields.io/github/stars/sunny2109/RDG?style=social)](https://github.com/sunny2109/RDG) <br>
-> [[Paper]()] &emsp;
-[[Supp]()]  <br>
+> [[Paper](assets/Paper_CVPR_2025.pdf)] &emsp;
+[[Supp](assets/Supp_CVPR_2025.pdf)]  <br>
 
 > [Mingjun Zheng*](https://github.com/Zheng-MJ),
 [Long Sun*](https://github.com/sunny2109),
