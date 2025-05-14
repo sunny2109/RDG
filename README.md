@@ -98,7 +98,7 @@ If you have any questions, please feel free to reach us out at cs.longsun@gmail.
 
 If you find our work helpful for your research, please consider giving a star ⭐ and citation 📝
 ```bibtex
-@article{RDG,
+@InProceedings{RDG,
   title={Efficient Video Super-Resolution for Real-time Rendering with Decoupled G-buffer Guidance},
   author={Zheng, Mingjun and Sun, Long and Dong, Jiangxin and Pan, Jinshan},
   booktitle={CVPR},
