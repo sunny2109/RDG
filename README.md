@@ -2,8 +2,8 @@
 > [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/Meloo/SAFMN/tree/main)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=sunny2109/RDG)
 [![GitHub Stars](https://img.shields.io/github/stars/sunny2109/RDG?style=social)](https://github.com/sunny2109/RDG) <br>
-> [[Paper](assets/Paper_CVPR_2025.pdf)] &emsp;
-[[Supp](assets/Supp_CVPR_2025.pdf)]  <br>
+> [[Paper](https://openaccess.thecvf.com/content/CVPR2025/papers/Zheng_Efficient_Video_Super-Resolution_for_Real-time_Rendering_with_Decoupled_G-buffer_Guidance_CVPR_2025_paper.pdf)] &emsp;
+[[Supp](https://openaccess.thecvf.com/content/CVPR2025/supplemental/Zheng_Efficient_Video_Super-Resolution_CVPR_2025_supplemental.pdf)]  <br>
 
 > [Mingjun Zheng*](https://github.com/Zheng-MJ),
 [Long Sun*](https://github.com/sunny2109),
