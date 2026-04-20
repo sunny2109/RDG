@@ -1,5 +1,5 @@
 ## 📖 Efficient Video Super-Resolution for Real-time Rendering with Decoupled G-buffer Guidance
-> [![Hugging Face Models](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-blue)](https://huggingface.co/Meloo/SAFMN/tree/main)
+> [![Hugging Face Datasets](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Datasets-blue)](https://huggingface.co/datasets/Meloo/RDG_dataset)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=sunny2109/RDG)
 [![GitHub Stars](https://img.shields.io/github/stars/sunny2109/RDG?style=social)](https://github.com/sunny2109/RDG) <br>
 > [[Paper](https://openaccess.thecvf.com/content/CVPR2025/papers/Zheng_Efficient_Video_Super-Resolution_for_Real-time_Rendering_with_Decoupled_G-buffer_Guidance_CVPR_2025_paper.pdf)] &emsp;
